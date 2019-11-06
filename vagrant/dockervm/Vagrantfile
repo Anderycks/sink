@@ -1,0 +1,27 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+$docker_install = <<-SCRIPT
+    sudo apt-get update -y
+    sudo apt-get install apt-transport-https ca-certificates \
+        curl software-properties-common
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    sudo add-apt-repository \
+        "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+    sudo apt-get update -y
+    sudo apt-get install -y docker-ce
+    sudo mkdir -p /etc/systemd/system/docker.service.d
+    cat > /etc/systemd/system/docker.service.d/options.conf <<EOF
+[Service]
+ExecStart=
+ExecStart=/usr/bin/dockerd -H unix:// -H tcp://0.0.0.0:2376
+EOF
+    sudo systemctl daemon-reload
+    sudo systemctl restart docker.service
+SCRIPT
+
+Vagrant.configure("2") do |config|
+    config.vm.box = "ubuntu/bionic64"
+    config.vm.network "public_network", ip: "192.168.0.90"
+    config.vm.provision "shell", inline: $docker_install
+end
