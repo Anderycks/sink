@@ -46,6 +46,7 @@ endif
 
 " Required for YouCompleteMe on Windows.
 set encoding=utf-8
+set pythonthreedll=python37.dll
 
 filetype on
 filetype plugin on
