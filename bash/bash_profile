@@ -1,0 +1,22 @@
+export CLICOLOR=1
+export LSCOLORS=gxFxCxDxBxegedabagaced
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH:$HOME/Scripts
+export PYTHONSTARTUP=$HOME/.pystartup
+
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
+
+# Go Development
+export GOPATH=$HOME/Developer/go
+export GOBIN=$GOPATH/bin
+
+# For Python builds to find OpenSSL installed by Homebrew
+export LDFLAGS=-L/usr/local/opt/openssl/lib
+export CPPFLAGS=-I/usr/local/opt/openssl/include
+
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Java
+export PATH=/usr/local/opt/openjdk/bin:$PATH

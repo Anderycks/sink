@@ -1,0 +1,21 @@
+import atexit
+import os
+
+historyPath = os.path.expanduser("~/.pyhistory")
+
+import readline
+import rlcompleter
+
+if 'libedit' in readline.__doc__:
+    readline.parse_and_bind("bind ^I rl_complete")
+else:
+    readline.parse_and_bind("tab: complete")
+
+if os.path.exists(historyPath):
+    readline.read_history_file(historyPath)
+
+def save_history(historyPath=historyPath):
+    import readline
+    readline.write_history_file(historyPath)
+atexit.register(save_history)
+
