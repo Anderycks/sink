@@ -35,7 +35,7 @@ if has('gui_running')
     set guioptions+=TLlRrb
     set guioptions-=TLlRrb
     set lines=70 columns=105
-    set guifont=Monaco:h11
+    set guifont=Hack\ Regular:h12
 endif
 
 filetype on
