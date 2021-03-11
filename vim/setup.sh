@@ -8,6 +8,8 @@ if [[ $(uname -a | grep Darwin) ]]; then
     ln -s /Applications/MacVim.app/Contents/bin/mvim ~/Scripts/
 fi
 
+cp vimrc $HOME/.vimrc
+
 mkdir -p $VIMCOLORS
 wget https://raw.githubusercontent.com/jonathanfilip/vim-lucius/master/colors/lucius.vim \
     -O $VIMCOLORS/lucius.vim
