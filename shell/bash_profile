@@ -3,6 +3,9 @@ export LSCOLORS=gxFxCxDxBxegedabagaced
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH:$HOME/Scripts
 export PYTHONSTARTUP=$HOME/.pystartup
 
+# Better prompt, with color.
+export PS1="%n@%m:%F{green}$AWS_PROFILE %F{blue}%1~%F{reset} %# "
+
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
