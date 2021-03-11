@@ -48,7 +48,7 @@ set fileformats=unix,dos
 
 " Filetype-based indent and spacing, only for filetypes
 " that are different than the default above.
-autocmd FileType css set ts=2 sts=2 sw=2
+autocmd FileType css,json,terraform set ts=2 sts=2 sw=2
 autocmd FileType htmldjango,xhtml,html set ts=2 sts=2 sw=2 tw=100
 autocmd FileType c,cpp set ts=8 sts=8 sw=8 noet
 
