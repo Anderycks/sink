@@ -21,3 +21,6 @@ export PS1="%n@%m:%F{green}$AWS_PROFILE %F{blue}%1~%F{reset} %# "
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
+
+# Update title, to help out Hyper terminal.
+precmd() { echo -en "\033]0;${PWD/#$HOME/~}\007" }
