@@ -17,7 +17,7 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 alias history="history 1"
 
 # Better prompt, with color.
-export PS1="%n@%m:%F{green}$AWS_PROFILE %F{blue}%1~%F{reset} %# "
+export PS1="%n@%m:%F{036}$AWS_PROFILE %F{blue}%1~%F{reset} %# "
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
