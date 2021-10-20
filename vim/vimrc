@@ -73,7 +73,7 @@ let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 let g:ycm_collect_identifiers_from_tags_files = 1
 
 " NerdCommenter setup.
-let g:NERDSpaceDelims = 1
+let g:NERDSpaceDelims = 0
 let g:NERDTrimTrailingWhitespace = 1
 
 " closetag setup.
