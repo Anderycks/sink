@@ -35,7 +35,7 @@ if has('gui_running')
     set guioptions+=TLlRrb
     set guioptions-=TLlRrb
     set lines=70 columns=105
-    set guifont=Hack\ Regular:h12
+    set guifont=SF\ Mono:h12
 endif
 
 filetype on
@@ -48,7 +48,7 @@ set fileformats=unix,dos
 
 " Filetype-based indent and spacing, only for filetypes
 " that are different than the default above.
-autocmd FileType css,json,terraform set ts=2 sts=2 sw=2
+autocmd FileType css,json,terraform,tf set ts=2 sts=2 sw=2
 autocmd FileType htmldjango,xhtml,html set ts=2 sts=2 sw=2 tw=100
 autocmd FileType c,cpp set ts=8 sts=8 sw=8 noet
 
@@ -71,6 +71,9 @@ let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 " Tag files need --fields=+l option
 " for YouCompleteMe to be able to read them.
 let g:ycm_collect_identifiers_from_tags_files = 1
+" Not YouCompleteMe specific, but helps not open
+" preview in a new buffer.
+set completeopt=menuone
 
 " NerdCommenter setup.
 let g:NERDSpaceDelims = 0
@@ -94,7 +97,7 @@ set nowritebackup
 inoremap jj <ESC><CR>
 
 " Highlight long lines
-match Error /\%>80v.\+/
+match Error /\%>90v.\+/
 
 " Highlight extraneous whitespace and tabs.
 set list
