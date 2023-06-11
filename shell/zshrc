@@ -1,26 +1,15 @@
-export CLICOLOR=1
-export PATH=/usr/local/opt/node@14/bin:/usr/local/bin:/usr/local/sbin:$PATH:$HOME/Scripts
-export PYTHONSTARTUP=$HOME/.pystartup
-
-# Homebrew tab expansion.
 if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+  FPATH=$(brew --prefix)/share/zsh/zsh-completions:$FPATH
 
   autoload -Uz compinit
   compinit
 fi
 
-# Java development
-export JAVA_HOME=$(/usr/libexec/java_home)
+export CLICOLOR=1
+export PATH=/opt/homebrew/opt/node@16/bin:/usr/local/bin:/usr/local/sbin:$PATH:$HOME/Scripts
 
-# zsh improvments
+# Let's get more history going.
+HISTSIZE=10000
+HISTFILESIZE=10000
+SAVEHIST=$HISTSIZE
 alias history="history 1"
-
-# Better prompt, with color.
-export PS1="%n@%m:%F{036}$AWS_PROFILE %F{blue}%1~%F{reset} %# "
-
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/terraform terraform
-
-# Update title, to help out Hyper terminal.
-precmd() { echo -en "\033]0;${PWD/#$HOME/~}\007" }
