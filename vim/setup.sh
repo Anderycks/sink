@@ -4,10 +4,6 @@ VIMHOME=$HOME/.vim
 VIMCOLORS=$VIMHOME/colors
 VIMBUNDLE=$VIMHOME/bundle
 
-if [[ $(uname -a | grep Darwin) ]]; then
-    ln -s /Applications/MacVim.app/Contents/bin/mvim ~/Scripts/
-fi
-
 cp vimrc $HOME/.vimrc
 
 mkdir -p $VIMCOLORS
@@ -22,4 +18,4 @@ vim +PluginInstall +qall
 # has been done. Also requires build-essential and the like
 # on Ubuntu.
 cd $VIMBUNDLE/YouCompleteMe
-python3 install.py --go-completer --ts-completer
+python3 install.py --ts-completer

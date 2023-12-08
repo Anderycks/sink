@@ -21,10 +21,7 @@ call vundle#end()
 
 syntax enable
 
-" Color scheme found at:
-" https://github.com/jonathanfilip/vim-lucius
-colorscheme lucius
-LuciusBlackHighContrast
+colorscheme hyperhacking
 
 " Disable all beeps and bells,
 " for both cli and GUI.
@@ -97,7 +94,7 @@ set nowritebackup
 inoremap jj <ESC><CR>
 
 " Highlight long lines
-match Error /\%>90v.\+/
+match Error /\%>100v.\+/
 
 " Highlight extraneous whitespace and tabs.
 set list
