@@ -1,25 +1,12 @@
+# Bash completions via Homebrew.
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && \
+    . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+
 export CLICOLOR=1
-export LSCOLORS=gxFxCxDxBxegedabagaced
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH:$HOME/Scripts
-export PYTHONSTARTUP=$HOME/.pystartup
+HISTSIZE=10000
+HISTFILESIZE=10000
+
+export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:/opt/homebrew/opt/node@20/bin:$PATH:$HOME/Scripts
 
 # Better prompt, with color.
-export PS1="%n@%m:%F{green}$AWS_PROFILE %F{blue}%1~%F{reset} %# "
-
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
-fi
-
-# Go Development
-export GOPATH=$HOME/Developer/go
-export GOBIN=$GOPATH/bin
-
-# For Python builds to find OpenSSL installed by Homebrew
-export LDFLAGS=-L/usr/local/opt/openssl/lib
-export CPPFLAGS=-I/usr/local/opt/openssl/include
-
-# Rust
-export PATH="$HOME/.cargo/bin:$PATH"
-
-# Java
-export PATH=/usr/local/opt/openjdk/bin:$PATH
+export PS1="\u@\h: \[\033[01;34m\]\w \[\033[00m\]\$ "
