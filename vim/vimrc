@@ -8,7 +8,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
     Plugin 'VundleVim/Vundle.vim'
-    Plugin 'vim-Syntastic/syntastic'
+    Plugin 'dense-analysis/ale'
     Plugin 'Valloric/YouCompleteMe'
     Plugin 'scrooloose/nerdcommenter'
     Plugin 'alvan/vim-closetag'
@@ -21,7 +21,8 @@ call vundle#end()
 
 syntax enable
 
-colorscheme hyperhacking
+colorscheme lucius
+LuciusBlackHighContrast
 
 " Disable all beeps and bells,
 " for both cli and GUI.
@@ -32,7 +33,7 @@ if has('gui_running')
     set guioptions+=TLlRrb
     set guioptions-=TLlRrb
     set lines=70 columns=105
-    set guifont=SF\ Mono:h12
+    set guifont=Monaco:h12
 endif
 
 filetype on
@@ -52,17 +53,11 @@ autocmd FileType c,cpp set ts=8 sts=8 sw=8 noet
 " Pickup any file with Jenkinsfile in the name as Groovy.
 autocmd BufRead,BufNewFile *Jenkinsfile* setfiletype groovy
 
-" Syntastic setup
+" Ale syntax highlight config
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
+let g:ale_virtualtext_cursor = 'disabled'
 
 " YouCompleteMe setup: Read tags files.
 " Tag files need --fields=+l option
