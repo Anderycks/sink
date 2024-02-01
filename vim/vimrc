@@ -20,9 +20,7 @@ call vundle#end()
 " get overridden intentionally below.
 
 syntax enable
-
-colorscheme lucius
-LuciusBlackHighContrast
+colorscheme hyperhacking
 
 " Disable all beeps and bells,
 " for both cli and GUI.
