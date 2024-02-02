@@ -40,6 +40,7 @@ if has('gui_running')
     highlight Title gui=None guifg=#eff07f guibg=black
     highlight Operator gui=None guifg=#86bdf9 guibg=black
     highlight Special gui=None guifg=#ef84e4 guibg=black
+    highlight Error gui=None guifg=#000000 guibg=#ef84e4
 else
     highlight Normal ctermfg=white ctermbg=black
     highlight LineNr ctermfg=lightgrey ctermbg=black
@@ -63,5 +64,6 @@ else
     highlight Title ctermfg=228 ctermbg=Black
     highlight Operator ctermfg=111 ctermbg=Black
     highlight Special ctermfg=212 ctermbg=Black
+    highlight Error ctermfg=Black ctermbg=212
 endif
 
