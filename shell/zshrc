@@ -1,15 +1,14 @@
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh/zsh-completions:$FPATH
-
-  autoload -Uz compinit
-  compinit
-fi
-
 export CLICOLOR=1
-export PATH=/opt/homebrew/opt/node@16/bin:/usr/local/bin:/usr/local/sbin:$PATH:$HOME/Scripts
+export PATH=/opt/homebrew/bin:/opt/homebrew/opt/node@20/bin:/usr/local/bin:/usr/local/sbin:$PATH:$HOME/Scripts
+
+FPATH=$(brew --prefix)/share/zsh/zsh-completions:$FPATH
+autoload -Uz compinit
+compinit
 
 # Let's get more history going.
 HISTSIZE=10000
 HISTFILESIZE=10000
 SAVEHIST=$HISTSIZE
 alias history="history 1"
+
+export PS1="%n@%m: %F{blue}%~%F{reset} %# "
