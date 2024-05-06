@@ -27,7 +27,7 @@ cd $STARTING_DIR
 VIMHOME=$HOME/.vim
 VIMCOLORS=$VIMHOME/colors
 VIMBUNDLE=$VIMHOME/bundle
-cp vimrc $HOME/.vimrc
+cp vim/vimrc $HOME/.vimrc
 
 ##
 # vim themes.
@@ -37,7 +37,7 @@ mkdir -p $VIMCOLORS
 # is my normal vim theme.
 wget https://raw.githubusercontent.com/jonathanfilip/vim-lucius/master/colors/lucius.vim \
     -O $VIMCOLORS/lucius.vim
-cp hyperhacking.vim $VIMCOLORS
+cp vim/hyperhacking.vim $VIMCOLORS
 
 ##
 # vim plugins with Vundle.
