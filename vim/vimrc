@@ -73,7 +73,7 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:closetag_filenames = "*.html,*.xhtml,*.jsx"
 
 " Airline status line setup.
-let g:airline_theme='luna'
+let g:airline_theme='fairyfloss'
 
 " Don't write backup files.
 " Swap files are good enough.
