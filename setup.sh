@@ -15,8 +15,8 @@ if [ $MACHINE_NAME == "Darwin" ]; then
     brew install node python3 macvim wget cmake git bash-completion@2
 elif [ $MACHINE_NAME == "Linux" ]; then
     # Assumes Ubuntu.
-    apt update
-    apt -y install python3 python3-dev nodejs vim wget build-essential cmake git
+    sudo apt update
+    sudp apt -y install python3 python3-dev nodejs vim wget build-essential cmake git
 fi
 
 cd $STARTING_DIR
