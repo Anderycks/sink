@@ -16,7 +16,7 @@ if [ $MACHINE_NAME == "Darwin" ]; then
 elif [ $MACHINE_NAME == "Linux" ]; then
     # Assumes Ubuntu.
     sudo apt update
-    sudp apt -y install python3 python3-dev nodejs vim wget build-essential cmake git
+    sudo apt -y install python3 python3-dev nodejs vim wget build-essential cmake git
 fi
 
 cd $STARTING_DIR
