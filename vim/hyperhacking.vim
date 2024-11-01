@@ -53,14 +53,14 @@ else
     highlight Keyword ctermfg=111 ctermbg=Black
     highlight Type ctermfg=228 ctermbg=Black
     highlight Constant ctermfg=212 ctermbg=Black
-    highlight Statement ctermfg=111 ctermbg=Black
-    highlight Function ctermfg=78 ctermbg=Black
-    highlight PreProc ctermfg=111 ctermbg=Black
+    highlight Statement ctermfg=141 ctermbg=Black
+    highlight Function ctermfg=111 ctermbg=Black
+    highlight PreProc ctermfg=141 ctermbg=Black
     highlight htmlTag ctermfg=111 ctermbg=Black
     highlight htmlEndTag ctermfg=111 ctermbg=Black
     highlight htmlTitle ctermfg=White ctermbg=Black
     highlight htmlArg ctermfg=141 ctermbg=Black
-    highlight pythonFunction ctermfg=78 ctermbg=Black
+    highlight pythonFunction ctermfg=111 ctermbg=Black
     highlight Title ctermfg=228 ctermbg=Black
     highlight Operator ctermfg=111 ctermbg=Black
     highlight Special ctermfg=212 ctermbg=Black
