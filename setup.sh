@@ -1,47 +1,18 @@
 # #!/usr/bin/env bash
 
-# Setup a computer for dev, which mostly means
-# my vim configuration.
-
-# homebrew cd's when it installs, so keep track of
-# where we start so we can get back here.
-STARTING_DIR=$(pwd)
+sudo apt update
+sudo apt -y install python3 python3-dev nodejs npm vim wget build-essential cmake git
 
 ##
-# Install depenendencies based on platform.
-MACHINE_NAME="$(uname)"
-if [ $MACHINE_NAME == "Darwin" ]; then
-    eval "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    brew install node python3 macvim wget cmake git bash-completion@2
-elif [ $MACHINE_NAME == "Linux" ]; then
-    # Assumes Ubuntu.
-    sudo apt update
-    sudo apt -y install python3 python3-dev nodejs vim wget build-essential cmake git
-fi
-
-cd $STARTING_DIR
+# gnome terminal theme
+##
+curl -L https://raw.githubusercontent.com/catppuccin/gnome-terminal/v0.3.0/install.py | python3 -
 
 ##
 # vim
 ##
-VIMHOME=$HOME/.vim
-VIMCOLORS=$VIMHOME/colors
-VIMBUNDLE=$VIMHOME/bundle
+VIMBUNDLE=$HOME/.vim/bundle
 cp vim/vimrc $HOME/.vimrc
-
-##
-# vim themes.
-##
-mkdir -p $VIMCOLORS
-# lucius is a fallback vim theme, but my own hyperhacking theme
-# is my normal vim theme.
-wget https://raw.githubusercontent.com/jonathanfilip/vim-lucius/master/colors/lucius.vim \
-    -O $VIMCOLORS/lucius.vim
-cp vim/hyperhacking.vim $VIMCOLORS
-
-##
-# vim plugins with Vundle.
-##
 git clone https://github.com/VundleVim/Vundle.vim.git $VIMBUNDLE/Vundle.vim
 vim +PluginInstall +qall
 cd $VIMBUNDLE/YouCompleteMe

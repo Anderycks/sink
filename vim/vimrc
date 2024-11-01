@@ -14,13 +14,14 @@ call vundle#begin()
     Plugin 'alvan/vim-closetag'
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
-    Plugin 'keith/swift.vim'
+    Plugin 'preservim/nerdtree'
+    Plugin 'catppuccin/nvim'
 call vundle#end()
 " Vundle is all done. Some of the things set above
 " get overridden intentionally below.
 
 syntax enable
-colorscheme hyperhacking
+colorscheme catppuccin-mocha
 
 " Disable all beeps and bells,
 " for both cli and GUI.
@@ -28,10 +29,11 @@ set noeb vb t_vb=
 autocmd GUIEnter * set vb t_vb=
 
 if has('gui_running')
+    set guioptions -=m
     set guioptions+=TLlRrb
     set guioptions-=TLlRrb
     set lines=70 columns=105
-    set guifont=Monaco:h12
+    set guifont="Ubuntu Mono":h12
 endif
 
 filetype on
@@ -73,7 +75,7 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:closetag_filenames = "*.html,*.xhtml,*.jsx"
 
 " Airline status line setup.
-let g:airline_theme='fairyfloss'
+let g:airline_theme='catppuccin'
 
 " Don't write backup files.
 " Swap files are good enough.
