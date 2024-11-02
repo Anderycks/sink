@@ -15,26 +15,15 @@ call vundle#begin()
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
     Plugin 'preservim/nerdtree'
-    Plugin 'catppuccin/nvim'
 call vundle#end()
 " Vundle is all done. Some of the things set above
 " get overridden intentionally below.
 
 syntax enable
-colorscheme catppuccin-mocha
+colorscheme hyperhacking
 
-" Disable all beeps and bells,
-" for both cli and GUI.
+" Disable all beeps and bells.
 set noeb vb t_vb=
-autocmd GUIEnter * set vb t_vb=
-
-if has('gui_running')
-    set guioptions -=m
-    set guioptions+=TLlRrb
-    set guioptions-=TLlRrb
-    set lines=70 columns=105
-    set guifont="Ubuntu Mono":h12
-endif
 
 filetype on
 filetype plugin on
@@ -42,7 +31,6 @@ set ts=4 sts=4 sw=4 tw=80 et
 set number
 set fileformat=unix
 set fileformats=unix,dos
-
 
 " Filetype-based indent and spacing, only for filetypes
 " that are different than the default above.
@@ -75,18 +63,12 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:closetag_filenames = "*.html,*.xhtml,*.jsx"
 
 " Airline status line setup.
-let g:airline_theme='catppuccin'
+let g:airline_theme='fairyfloss'
 
 " Don't write backup files.
 " Swap files are good enough.
 set nobackup
 set nowritebackup
-
-" Remap the switch from insert mode.
-" I don't actually use this much, muscle memory
-" being what it is. But I've been playing with,
-" just in case I ever get a Mac with no ESC key.
-inoremap jj <ESC><CR>
 
 " Highlight long lines
 match Error /\%>100v.\+/
