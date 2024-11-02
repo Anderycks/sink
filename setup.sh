@@ -16,6 +16,9 @@ MACHINE_NAME="$(uname)"
 if [ $MACHINE_NAME == "Darwin" ]; then
     eval "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew install bash node python3 vim wget cmake git bash-completion@2
+    # Make bash the default shell.
+    sudo echo "/opt/homebrew/bin/bash" >> /etc/shells
+    chsh -s /opt/homebrew/bin/bash
 elif [ $MACHINE_NAME == "Linux" ]; then
     # Assumes Ubuntu.
     sudo apt update
