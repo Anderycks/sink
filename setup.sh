@@ -1,35 +1,32 @@
-# #!/usr/bin/env bash
+#!/usr/bin/env bash
 
 ##
-# Initial environment setup.
+# Initial setup for a Mac.
 ##
 
 # homebrew cd's when it installs, so keep track of
-# where we start to be able to get back. This is
-# safe to do on Linux as well. No harm.
+# where we start to be able to get back.
 STARTING_DIR=$(pwd)
 
-##
-# Install depenendencies based on platform.
-##
-MACHINE_NAME="$(uname)"
-if [ $MACHINE_NAME == "Darwin" ]; then
-    eval "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    brew install bash node python3 vim wget cmake git bash-completion@2
-    # Make bash the default shell.
-    sudo echo "/opt/homebrew/bin/bash" >> /etc/shells
-    chsh -s /opt/homebrew/bin/bash
-elif [ $MACHINE_NAME == "Linux" ]; then
-    # Assumes Ubuntu.
-    sudo apt update
-    sudo apt -y install python3 python3-dev nodejs npm vim wget build-essential cmake git
-fi
+# Install homebrew and system packages.
+eval "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install bash node python3 vim wget cmake git bash-completion@2
+brew install --cask font-hack
 
-cd $STARTING_DIR
+# Make bash the default shell.
+echo "/opt/homebrew/bin/bash" | sudo tee -a /etc/shells
+chsh -s /opt/homebrew/bin/bash
+cp shell/bash_profile ~/.bash_profile
+
+# Setup links to iCloud files.
+ln -s $HOME/Documents/Scripts $HOME/Scripts
+ln -s $HOME/Library/Mobile\ Documents/com~apple~CloudDocs $HOME/iCloud
+ln -s $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/Developer $HOME/Developer
 
 ##
 # vim
 ##
+cd $STARTING_DIR
 VIMHOME=$HOME/.vim
 VIMCOLORS=$VIMHOME/colors
 VIMBUNDLE=$VIMHOME/bundle
