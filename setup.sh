@@ -4,6 +4,8 @@
 # Initial setup for a Mac.
 ##
 
+set -e
+
 # homebrew cd's when it installs, so keep track of
 # where we start to be able to get back.
 STARTING_DIR=$(pwd)
