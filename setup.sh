@@ -11,7 +11,7 @@ set -e
 STARTING_DIR=$(pwd)
 
 # Install homebrew and system packages.
-eval "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install bash node python3 vim wget cmake git bash-completion@2
 brew install --cask font-hack
 
