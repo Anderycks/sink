@@ -48,7 +48,7 @@ else
     highlight Cursor ctermbg=white ctermfg=black
     highlight Pmenu ctermbg=141 ctermfg=Black
     highlight String ctermfg=78 ctermbg=Black
-    highlight Comment ctermfg=78 ctermbg=Black
+    highlight Comment ctermfg=darkgrey ctermbg=Black
     highlight Identifier ctermfg=212 guibg=Black
     highlight Keyword ctermfg=111 ctermbg=Black
     highlight Type ctermfg=228 ctermbg=Black
