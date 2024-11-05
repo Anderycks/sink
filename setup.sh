@@ -25,6 +25,10 @@ ln -s $HOME/Documents/Scripts $HOME/Scripts
 ln -s $HOME/Library/Mobile\ Documents/com~apple~CloudDocs $HOME/iCloud
 ln -s $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/Developer $HOME/Developer
 
+# This is really only needed so the vim install
+# below can find everything in the correct PATH.
+source ~/.bash_profile
+
 ##
 # vim
 ##
