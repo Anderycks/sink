@@ -12,8 +12,8 @@ STARTING_DIR=$(pwd)
 
 # Install homebrew and system packages.
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install bash node python3 vim wget cmake git bash-completion@2
-brew install --cask font-hack
+/opt/homebrew/bin/brew install bash node python3 vim wget cmake git bash-completion@2
+/opt/homebrew/bin/brew install --cask font-hack
 
 # Make bash the default shell.
 echo "/opt/homebrew/bin/bash" | sudo tee -a /etc/shells
