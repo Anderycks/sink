@@ -41,10 +41,8 @@ autocmd FileType c,cpp set ts=8 sts=8 sw=8 noet
 " Pickup any file with Jenkinsfile in the name as Groovy.
 autocmd BufRead,BufNewFile *Jenkinsfile* setfiletype groovy
 
-" Ale syntax highlight config
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" This ensures Ale doesn't report errors inline
+" at the cursor in the code text.
 let g:ale_virtualtext_cursor = 'disabled'
 
 " YouCompleteMe setup: Read tags files.
