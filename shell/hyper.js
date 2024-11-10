@@ -36,7 +36,7 @@ module.exports = {
     cursorShape: 'BLOCK',
 
     // set to `true` (without backticks and without quotes) for blinking cursor
-    cursorBlink: false,
+    cursorBlink: true,
 
     // color of the text
     foregroundColor: '#fff',
@@ -88,7 +88,7 @@ module.exports = {
       lightBlue: '#75bfff',
       lightMagenta: '#b98eff',
       lightCyan: '#75bfff',
-      lightWhite: '#97a4b3',
+      lightWhite: '#FFFFFF',
     },
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
@@ -103,7 +103,7 @@ module.exports = {
     //
     // PowerShell on Windows
     // - Example: `C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe`
-    shell: '/opt/homebrew/bin/bash',
+    shell: '/bin/zsh',
 
     // for setting shell arguments (i.e. for using interactive shellArgs: `['-i']`)
     // by default `['--login']` will be used
@@ -137,25 +137,21 @@ module.exports = {
     // rendering (slower, but supports transparent backgrounds)
     webGLRenderer: true,
 
-    // for advanced config flags please refer to https://hyper.is/#cfg
-    hyperline: {
-        plugins: [
-          "hostname",
-          "cpu",
-          "memory",
-          "network",
-          "battery"
-        ]
-    },
-  },
+    //plugins: [
+        //"hyperline"
+    //],
 
-  // a list of plugins to fetch and install from npm
-  // format: [@org/]project[#version]
-  // examples:
-  //   `hyperpower`
-  //   `@company/project`
-  //   `project#1.0.1`
-  //plugins: ["hyperline"],
+    //// for advanced config flags please refer to https://hyper.is/#cfg
+    //hyperline: {
+        //plugins: [
+          //"hostname",
+          //"cpu",
+          //"memory",
+          //"network",
+          //"battery"
+        //]
+    //},
+  },
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
