@@ -15,10 +15,7 @@ STARTING_DIR=$(pwd)
 /opt/homebrew/bin/brew install bash node python3 vim wget cmake git bash-completion@2
 /opt/homebrew/bin/brew install --cask font-hack
 
-# Make bash the default shell.
-echo "/opt/homebrew/bin/bash" | sudo tee -a /etc/shells
-chsh -s /opt/homebrew/bin/bash
-cp shell/bash_profile ~/.bash_profile
+cp shell/zshrc ~/.zshrc
 
 # Setup links to iCloud files.
 ln -s $HOME/Documents/Scripts $HOME/Scripts
@@ -27,7 +24,7 @@ ln -s $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/Developer $HOME/Develo
 
 # This is really only needed so the vim install
 # below can find everything in the correct PATH.
-source ~/.bash_profile
+source ~/.zshrc
 
 ##
 # vim
