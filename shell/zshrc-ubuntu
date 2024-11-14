@@ -1,0 +1,36 @@
+autoload -Uz compinit && compinit
+
+# Enable color support in ls and other commands.
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+    alias diff='diff --color=auto'
+fi
+
+HISTSIZE=1000
+HISTFILESIZE=2000
+alias history='history 1'
+
+function branch_name() {
+    git_branch_output=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+    has_changes=$(git diff 2>/dev/null)
+
+    if [[ $has_changes == "" ]];then
+        change_marker=""
+    else
+        change_marker="%F{red}*"
+    fi
+
+    if [[ $git_branch_output == "" ]];then
+        echo ""
+    else
+        echo "%F{magenta}(%F{green}$git_branch_output$change_marker%F{magenta})%F{reset} "
+    fi
+}
+
+precmd() {
+    PS1="$VIRTUAL_ENV_PROMPT%F{green}%n@%m%F{reset}: %F{blue}%~%F{reset} $(branch_name)%F{magenta}$%F{reset} "
+}
