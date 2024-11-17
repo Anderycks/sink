@@ -20,7 +20,7 @@ call vundle#end()
 " get overridden intentionally below.
 
 syntax enable
-colorscheme hyperhacking
+colorscheme atom-dark-256
 
 " Disable all beeps and bells.
 set noeb vb t_vb=
@@ -68,7 +68,7 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 let g:closetag_filenames = "*.html,*.xhtml,*.jsx"
 
 " Airline status line setup.
-let g:airline_theme='fairyfloss'
+let g:airline_theme='dark'
 
 " Don't write backup files.
 " Swap files are good enough.

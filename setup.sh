@@ -35,6 +35,8 @@ VIMCOLORS=$VIMHOME/colors
 VIMBUNDLE=$VIMHOME/bundle
 cp vim/vimrc $HOME/.vimrc
 mkdir -p $VIMCOLORS
+wget https://raw.githubusercontent.com/gosukiwi/vim-atom-dark/refs/heads/master/colors/atom-dark-256.vim \
+    -O $VIMCOLORS/atom-dark-256.vim
 cp vim/hyperhacking.vim $VIMCOLORS
 git clone https://github.com/VundleVim/Vundle.vim.git $VIMBUNDLE/Vundle.vim
 vim +PluginInstall +qall

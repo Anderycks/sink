@@ -3,12 +3,20 @@ export PATH=/opt/homebrew/bin:/opt/homebrew/opt/node@20/bin:/usr/local/bin:/usr/
 FPATH=$(brew --prefix)/share/zsh/zsh-completions:$FPATH
 autoload -Uz compinit && compinit
 
+# Color output for ls and other tools.
 export CLICOLOR=1
+alias diff="diff --color"
+
+# Disable the color repl added in Python 3.13.
+export PYTHON_COLORS=0
+
+# Better history handling.
 HISTSIZE=10000
 HISTFILESIZE=10000
 SAVEHIST=$HISTSIZE
 alias history="history 1"
 
+# Custom prompt setup.
 function branch_name() {
     git_branch_output=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
     has_changes=$(git diff 2>/dev/null)
@@ -25,7 +33,6 @@ function branch_name() {
         echo "%F{magenta}(%F{green}$git_branch_output$change_marker%F{magenta})%F{reset} "
     fi
 }
-
 precmd() {
     PS1="%F{green}%n@%m%F{reset}: %F{blue}%~%F{reset} $(branch_name)%F{magenta}$%F{reset} "
 }
