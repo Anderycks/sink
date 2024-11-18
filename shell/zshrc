@@ -33,6 +33,15 @@ function branch_name() {
         echo "%F{magenta}(%F{green}$git_branch_output$change_marker%F{magenta})%F{reset} "
     fi
 }
+
+function better_venv_prompt() {
+    if [[ $VIRTUAL_ENV_PROMPT != "" ]]; then
+        echo "($VIRTUAL_ENV_PROMPT) "
+    else
+        echo ""
+    fi
+}
+
 precmd() {
-    PS1="%F{green}%n@%m%F{reset}: %F{blue}%~%F{reset} $(branch_name)%F{magenta}$%F{reset} "
+    PS1="$(better_venv_prompt)%F{green}%n@%m%F{reset}: %F{blue}%~%F{reset} $(branch_name)%F{magenta}$%F{reset} "
 }
