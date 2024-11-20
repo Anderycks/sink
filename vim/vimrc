@@ -15,12 +15,13 @@ call vundle#begin()
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
     Plugin 'preservim/nerdtree'
+    Plugin 'arcticicestudio/nord-vim'
 call vundle#end()
 " Vundle is all done. Some of the things set above
 " get overridden intentionally below.
 
 syntax enable
-colorscheme atom-dark-256
+colorscheme nord
 
 " Disable all beeps and bells.
 set noeb vb t_vb=
@@ -68,7 +69,7 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 let g:closetag_filenames = "*.html,*.xhtml,*.jsx"
 
 " Airline status line setup.
-let g:airline_theme='dark'
+let g:airline_theme='nord'
 
 " Don't write backup files.
 " Swap files are good enough.
