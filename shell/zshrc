@@ -7,9 +7,6 @@ autoload -Uz compinit && compinit
 export CLICOLOR=1
 alias diff="diff --color"
 
-# Disable the color repl added in Python 3.13.
-export PYTHON_COLORS=0
-
 # Better history handling.
 HISTSIZE=10000
 HISTFILESIZE=10000
@@ -34,14 +31,6 @@ function branch_name() {
     fi
 }
 
-function better_venv_prompt() {
-    if [[ $VIRTUAL_ENV_PROMPT != "" ]]; then
-        echo "($VIRTUAL_ENV_PROMPT) "
-    else
-        echo ""
-    fi
-}
-
 precmd() {
-    PS1="$(better_venv_prompt)%F{green}%n@%m%F{reset}: %F{blue}%~%F{reset} $(branch_name)%F{magenta}$%F{reset} "
+    PS1="%F{magenta}$VIRTUAL_ENV_PROMPT%F{reset}%n@%m: %F{blue}%~%F{reset} $(branch_name)%F{magenta}$%F{reset} "
 }
