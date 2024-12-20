@@ -45,5 +45,5 @@ function better_venv_prompt() {
 }
 
 precmd() {
-    PS1="%F{magenta}$(better_venv_prompt)%F{green}%n@%m%F{reset}: %F{blue}%~%F{reset} $(branch_name)%F{magenta}$%F{reset} "
+    PS1="%F{magenta}$(better_venv_prompt)%F{blue}%n%F{reset}@%F{green}%m%F{reset}: %F{blue}%~%F{reset} $(branch_name)%F{magenta}$%F{reset} "
 }
