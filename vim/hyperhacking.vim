@@ -15,7 +15,7 @@ highlight clear
 
 let g:colors_name = 'hyperhacking'
 
-highlight Normal ctermfg=white ctermbg=black
+highlight Normal ctermfg=white ctermbg=16
 highlight LineNr ctermfg=lightgrey ctermbg=black
 highlight SignColumn ctermfg=lightgrey ctermbg=black
 highlight Cursor ctermbg=white ctermfg=black
