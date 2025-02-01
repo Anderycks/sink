@@ -1,3 +1,4 @@
 # Found in ~/Library/Application\ Support/com.mitchellh.ghostty/config
 theme = carbonfox
 font-family = Hack Nerd Font Mono
+keybind = global:cmd+shift+space=toggle_quick_terminal
