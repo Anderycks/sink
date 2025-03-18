@@ -1,7 +1,10 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 ##
 # Initial setup for a Mac.
+#
+# Assumes initial Mac provisioning and related
+# AppleID logins.
 ##
 
 set -e
@@ -12,8 +15,8 @@ STARTING_DIR=$(pwd)
 
 # Install homebrew and system packages.
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-/opt/homebrew/bin/brew install bash node python3 vim wget cmake git bash-completion@2
-/opt/homebrew/bin/brew install --cask font-hack
+/opt/homebrew/bin/brew install node@22 python3 vim wget cmake git zsh-completions
+/opt/homebrew/bin/brew install --cask ghostty font-hack-nerd-font firefox@developer-edition
 
 cp shell/zshrc ~/.zshrc
 
@@ -25,6 +28,12 @@ ln -s $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/Developer $HOME/Develo
 # This is really only needed so the vim install
 # below can find everything in the correct PATH.
 source ~/.zshrc
+
+# Ensure ghostty config is downloaded from iCloud
+# before trying to cp it.
+brctl download ~/Developer/Dev-Tools/sink/shell/ghostty-config
+cp ~/Developer/Dev-Tools/sink/shell/ghostty-config \
+    ~/Library/Application\ Support/com.mitchellh.ghostty/config
 
 ##
 # vim

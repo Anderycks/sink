@@ -1,4 +1,4 @@
-export PATH=/opt/homebrew/bin:/opt/homebrew/opt/node@20/bin:/usr/local/bin:/usr/local/sbin:$PATH:$HOME/Scripts
+export PATH=/opt/homebrew/bin:/opt/homebrew/opt/node@22/bin:/usr/local/bin:/usr/local/sbin:$PATH:$HOME/Scripts
 
 # Tab completions.
 FPATH=$(brew --prefix)/share/zsh/zsh-completions:$FPATH
