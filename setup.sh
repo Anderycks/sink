@@ -36,6 +36,9 @@ mkdir ~/Library/Application\ Support/com.mitchellh.ghostty
 cp ~/Developer/Dev-Tools/sink/shell/ghostty-config \
     ~/Library/Application\ Support/com.mitchellh.ghostty/config
 
+# Setup system keyboard shortcuts.
+cp macos/GlobalPreferences.plist ~/Library/Preferences/.GlobalPreferences.plist
+
 ##
 # vim
 ##
