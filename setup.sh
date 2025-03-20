@@ -15,7 +15,7 @@ STARTING_DIR=$(pwd)
 
 # Install homebrew and system packages.
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-/opt/homebrew/bin/brew install node@22 python3 vim wget cmake git zsh-completions
+/opt/homebrew/bin/brew install node@22 python3 flake8 vim wget cmake git zsh-completions
 /opt/homebrew/bin/brew install --cask ghostty font-hack-nerd-font firefox@developer-edition
 
 cp shell/zshrc ~/.zshrc
@@ -32,6 +32,7 @@ source ~/.zshrc
 # Ensure ghostty config is downloaded from iCloud
 # before trying to cp it.
 brctl download ~/Developer/Dev-Tools/sink/shell/ghostty-config
+mkdir ~/Library/Application\ Support/com.mitchellh.ghostty
 cp ~/Developer/Dev-Tools/sink/shell/ghostty-config \
     ~/Library/Application\ Support/com.mitchellh.ghostty/config
 
