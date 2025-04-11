@@ -16,7 +16,8 @@ STARTING_DIR=$(pwd)
 # Install homebrew and system packages.
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 /opt/homebrew/bin/brew install node@22 python3 flake8 vim wget cmake git zsh-completions
-/opt/homebrew/bin/brew install --cask ghostty font-hack-nerd-font firefox@developer-edition
+/opt/homebrew/bin/brew install --cask ghostty font-hack-nerd-font firefox@developer-edition \
+    moom amethyst
 
 cp shell/zshrc ~/.zshrc
 
