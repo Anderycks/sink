@@ -1,4 +1,4 @@
-export PATH=/opt/homebrew/bin:/opt/homebrew/opt/node@22/bin:/usr/local/bin:/usr/local/sbin:$PATH:$HOME/Scripts
+export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$PATH:$HOME/Scripts
 
 # Tab completions.
 FPATH=$(brew --prefix)/share/zsh/zsh-completions:$FPATH
@@ -18,32 +18,22 @@ HISTFILESIZE=10000
 SAVEHIST=$HISTSIZE
 alias history="history 1"
 
-# Custom prompt setup.
-function branch_name() {
-    git_branch_output=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
-    has_changes=$(git diff 2>/dev/null)
+# Setup git PS1 helpers.
+# These bash completions work on zsh too.
+source /opt/homebrew/etc/bash_completion.d/git-prompt.sh
+export GIT_PS1_SHOWCOLORHINTS=true
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
 
-    if [[ $has_changes == "" ]];then
-        change_marker=""
-    else
-        change_marker="%F{red}*"
-    fi
-
-    if [[ $git_branch_output == "" ]];then
-        echo ""
-    else
-        echo "%F{magenta}(%F{green}$git_branch_output$change_marker%F{magenta})%F{reset} "
-    fi
-}
-
-function better_venv_prompt() {
-    if [[ $VIRTUAL_ENV_PROMPT != "" ]]; then
-        echo "($VIRTUAL_ENV_PROMPT) "
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+venv_prompt() {
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+        echo "($(python --version)) "
     else
         echo ""
     fi
 }
 
 precmd() {
-    PS1="%F{magenta}$(better_venv_prompt)%F{blue}%n%F{reset}@%F{green}%m%F{reset}: %F{blue}%~%F{reset} $(branch_name)%F{magenta}$%F{reset} "
+    PS1="%F{magenta}$(venv_prompt)%F{blue}%n%F{reset}@%F{green}%m%F{reset}: %F{blue}%~%F{reset}$(__git_ps1)%F{magenta}$%F{reset} "
 }

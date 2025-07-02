@@ -1,12 +1,37 @@
-# Bash completions via Homebrew.
-[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && \
-    . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
+export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$PATH:$HOME/Scripts
+
+# Color output for ls and other tools.
 export CLICOLOR=1
+alias diff="diff --color"
+
+# Better history handling.
 HISTSIZE=10000
 HISTFILESIZE=10000
+SAVEHIST=$HISTSIZE
+alias history="history 1"
 
-export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:/opt/homebrew/opt/node@20/bin:$PATH:$HOME/Scripts
+## My own custom prompt.
+#########################
+BLUE='\[\e[34m\]'
+GREEN='\[\e[32m\]'
+PURPLE='\[\e[35m\]'
+RED='\[\e[31m\]'
+RESET='\[\e[0m\]'
 
-# Better prompt, with color.
-export PS1="\u@\h: \[\033[0;34m\]\w \[\033[00m\]\$ "
+export GIT_PS1_SHOWCOLORHINTS=true
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+venv_prompt() {
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+        echo "($(python --version)) "
+    else
+        echo ""
+    fi
+}
+
+# Set the prompt
+PS1="${PURPLE}\$(venv_prompt)${BLUE}\u${RESET}@${GREEN}\h${RESET}: ${BLUE}\w${RESET}\$(__git_ps1) ${PURPLE}\$ ${RESET}"
