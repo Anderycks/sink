@@ -1,6 +1,6 @@
 [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
-export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$PATH:$HOME/Scripts
+export PATH=/opt/homebrew/bin:/opt/homebrew/opt/node@22/bin:/usr/local/bin:/usr/local/sbin:$PATH:$HOME/Scripts
 
 # Color output for ls and other tools.
 export CLICOLOR=1
@@ -23,11 +23,9 @@ RESET='\[\e[0m\]'
 export GIT_PS1_SHOWCOLORHINTS=true
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
-
-export VIRTUAL_ENV_DISABLE_PROMPT=1
 venv_prompt() {
     if [[ -n "$VIRTUAL_ENV" ]]; then
-        echo "($(python --version)) "
+        echo "($(python --version)  $VIRTUAL_ENV_PROMPT) "
     else
         echo ""
     fi
