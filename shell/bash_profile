@@ -10,7 +10,6 @@ alias diff="diff --color"
 HISTSIZE=10000
 HISTFILESIZE=10000
 SAVEHIST=$HISTSIZE
-alias history="history 1"
 
 ## My own custom prompt.
 #########################
@@ -23,6 +22,7 @@ RESET='\[\e[0m\]'
 export GIT_PS1_SHOWCOLORHINTS=true
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 venv_prompt() {
     if [[ -n "$VIRTUAL_ENV" ]]; then
         echo "($(python --version)  $VIRTUAL_ENV_PROMPT) "
