@@ -3,3 +3,4 @@ theme = carbonfox
 font-family = Hack Nerd Font Mono
 keybind = global:cmd+shift+space=toggle_quick_terminal
 unfocused-split-opacity = 1
+split-divider-color = #353535
