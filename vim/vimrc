@@ -18,6 +18,7 @@ call vundle#begin()
     Plugin 'vim-python/python-syntax'
     Plugin 'tpope/vim-fugitive'
     Plugin 'EdenEast/nightfox.nvim'
+    Plugin 'ctrlpvim/ctrlp.vim'
 call vundle#end()
 " Vundle is all done. Some of the things set above
 " get overridden intentionally below.
