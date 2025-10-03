@@ -1,6 +1,12 @@
 # Found in ~/Library/Application\ Support/com.mitchellh.ghostty/config
+
+# Theme and visual tweaks.
 theme = carbonfox
 font-family = Hack Nerd Font Mono
-keybind = global:cmd+shift+space=toggle_quick_terminal
+
+# Don't try to hide the unfocused split.
 unfocused-split-opacity = 1
 split-divider-color = #353535
+
+# Turn off that ridiculous red dot on the Dock icon.
+bell-features = no-attention
