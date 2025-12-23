@@ -35,5 +35,5 @@ venv_prompt() {
 }
 
 precmd() {
-    PS1="%F{magenta}$(venv_prompt)%F{blue}%n%F{reset}@%F{green}%m%F{reset}: %F{blue}%~%F{reset}$(__git_ps1)%F{magenta}$%F{reset} "
+    PS1="%F{magenta}$(venv_prompt)%F{blue}%n%F{reset}@%F{green}%m%F{reset}: %F{blue}%~%F{reset}$(__git_ps1)%F{magenta} $%F{reset} "
 }
