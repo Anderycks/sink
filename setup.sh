@@ -15,7 +15,7 @@ STARTING_DIR=$(pwd)
 
 # Install homebrew and system packages.
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-/opt/homebrew/bin/brew install node@22 python3 flake8 vim wget cmake git zsh-completions
+/opt/homebrew/bin/brew install node@22 python3 flake8 vim wget cmake git zsh-completions uv
 /opt/homebrew/bin/brew install --cask ghostty font-hack-nerd-font firefox@developer-edition \
     moom amethyst
 
@@ -30,15 +30,8 @@ ln -s $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/Developer $HOME/Develo
 # below can find everything in the correct PATH.
 source ~/.zshrc
 
-# Ensure ghostty config is downloaded from iCloud
-# before trying to cp it.
-brctl download ~/Developer/Dev-Tools/sink/shell/ghostty-config
 mkdir ~/Library/Application\ Support/com.mitchellh.ghostty
-cp ~/Developer/Dev-Tools/sink/shell/ghostty-config \
-    ~/Library/Application\ Support/com.mitchellh.ghostty/config
-
-# Setup system keyboard shortcuts.
-cp macos/GlobalPreferences.plist ~/Library/Preferences/.GlobalPreferences.plist
+cp shell/ghostty-config ~/Library/Application\ Support/com.mitchellh.ghostty/config
 
 ##
 # vim
@@ -48,10 +41,6 @@ VIMHOME=$HOME/.vim
 VIMCOLORS=$VIMHOME/colors
 VIMBUNDLE=$VIMHOME/bundle
 cp vim/vimrc $HOME/.vimrc
-mkdir -p $VIMCOLORS
-wget https://raw.githubusercontent.com/gosukiwi/vim-atom-dark/refs/heads/master/colors/atom-dark-256.vim \
-    -O $VIMCOLORS/atom-dark-256.vim
-cp vim/hyperhacking.vim $VIMCOLORS
 git clone https://github.com/VundleVim/Vundle.vim.git $VIMBUNDLE/Vundle.vim
 vim +PluginInstall +qall
 cd $VIMBUNDLE/YouCompleteMe
